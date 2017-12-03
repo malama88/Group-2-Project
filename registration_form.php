@@ -1,11 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Thank You</title>
-</head>
-<body>
 <?php // Script registration_form.php
+
+include('templates/header.html');
 
 ini_set('display_errors', 1); // Let me learn from my mistakes!
 error_reporting(E_ALL); // Show all possible problems!
@@ -22,6 +17,6 @@ $response = $_POST['response'];
 // Print the registration message:
 print "<p>Thank you, $first_name $last_name, for registering for the online journal.</p>";
 
+include('templates/footer.html');
+
 ?>
-</body>
-</html>

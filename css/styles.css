@@ -14,9 +14,52 @@ body {
     font-family:"Century Gothic", "Candara", sans-serif;
     font-size: 1em;
     color:#999999;
-    background-image: url("../assets/bookstacks.jpg");
+    background: url("http://skmedina.org/WEB2310/project/assets/bookstacks.jpg") !important;
     background-repeat: repeat-y;
     background-position: left top;
+}
+.btn {
+
+  border-radius: 4px;
+
+  /*transition: all .3s;*/
+
+}
+
+
+
+.siteHeader {
+
+  border-bottom: 1px solid #eee;
+
+}
+.nav {
+    text-align: right;
+
+}
+.nav ul {
+    list-style-type: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+
+  display: inline;
+  line-height: 4;
+  margin-left: 25px;
+
+}
+
+.nav li:first-of-type {
+
+  margin-left: 0;
+
+}
+.siteContent {
+
+  padding: 50px 0;
+
 }
 
 #register input[type="submit"] {
@@ -66,4 +109,40 @@ body {
 }
 :-ms-input-placeholder {
     color:#888;
+}
+.masthead {
+
+  background-color: #eee;
+
+  padding: 50px 0;
+
+}
+
+@media (min-width: 48em) {
+
+  .masthead {
+
+    padding: 100px 0;
+
+  }
+
+}
+
+
+
+.masthead-title {
+
+  margin-top: 0;
+
+}
+
+
+.siteFooter {
+
+  border-top: 1px solid #eee;
+
+  font-size: .875em;
+
+  padding-top: 15px;
+
 }
