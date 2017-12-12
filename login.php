@@ -1,14 +1,18 @@
 <?php
 
-define('TITLE', 'Registration Form');
+define('TITLE', 'Login');
 include('templates/header.html');
 
-// Print some introductory text:
-print '<h2>Login</h2>
+	// Print some introductory text:
+    print '<h2></h2>
 	<p> </p>';
 
 // Check if the form has been submitted:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+// Connect
+    $dbc = mysqli_connect('thewritedev.com', 'thewrjk1_group', 'web2310', 'thewrjk1_WEB2310');
+    $result = $mysqli->query("SELECT * FROM USERS WHERE email='$email'");
 
     // Handle the form:
     if ( (!empty($_POST['email'])) && (!empty($_POST['password'])) ) {
@@ -46,4 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	</form>';}
 
 
-include('templates/footer.html'); // Need the footer.
+
+
+include('templates/footer.html'); // Need the footer. ?>
