@@ -16,17 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ( (!empty($_POST['email'])) && (!empty($_POST['password'])) ) {
         // Connect
         $email = strtolower($_POST['email']);
-        $password = $_POST['password'];
+        $passwordHash = md5($_POST['password']);
         $dbc = mysqli_connect('thewritedev.com', 'thewrjk1_group', 'web2310', 'thewrjk1_WEB2310');
-        $query = "SELECT * FROM USERS WHERE email='$email'";
+        $query = "SELECT * FROM USERS WHERE email='$email' AND password='$passwordHash'";
         $result = $result = mysqli_query($dbc,$query);
         $rows = mysqli_num_rows($result);
-        $row = mysqli_fetch_array($result);
-        $dbPassword = $row['password'];
 
 
-
-        if ( $dbPassword == $password ) { // Correct!
+        if ($rows == 1 ) { // Correct!
 
             // Do session stuff:
             session_start();

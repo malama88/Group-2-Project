@@ -63,8 +63,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             // Register
             // Define the query
+            $passwordHash = md5($password1);
             $query = "INSERT INTO USERS (first_name, last_name, email, password, signup_date) 
-            VALUES ('$first_name', '$last_name', '$email', '$password1', NOW())";
+            VALUES ('$first_name', '$last_name', '$email', '$passwordHash', NOW())";
 
             // Execute the query
             if (@mysqli_query($dbc, $query)) {
