@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo("$email is a valid email address");
     } else {
         echo("$email is not a valid email address");
+        $problem = true;
     }
 
     $password1=$_POST['password1'];
@@ -52,19 +53,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $dbc = mysqli_connect('thewritedev.com', 'thewrjk1_group', 'web2310', 'thewrjk1_WEB2310');
 
         // Check to see if user is registered
+        $query="SELECT * from USERS WHERE email='$email'";
+        $result = mysqli_query($dbc,$query);
+        $rows = mysqli_num_rows($result);
 
-
-
-        // Define the query
-        $query = "INSERT INTO USERS (first_name, last_name, email, password, signup_date) 
-          VALUES ('$first_name', '$last_name', '$email', '$password1', NOW())";
-
-        // Execute the query
-        if (@mysqli_query($dbc, $query)) {
-            print '<p class="text--success">You are now registered!</p>';
+        if($rows == 1) {
+            // Already Registered
+            print'<p>You are already registered.</p>';
         } else {
-            print '<p>Could not register because: <br>' . mysqli_error($dbc) . '.</p>
-                <p>The query being run was: ' .$query . '</p>';
+            // Register
+            // Define the query
+            $query = "INSERT INTO USERS (first_name, last_name, email, password, signup_date) 
+            VALUES ('$first_name', '$last_name', '$email', '$password1', NOW())";
+
+            // Execute the query
+            if (@mysqli_query($dbc, $query)) {
+                print '<p class="text--success">You are now registered!</p>';
+            } else {
+                print '<p>Could not register because: <br>' . mysqli_error($dbc) . '.</p>
+                <p>The query being run was: ' . $query . '</p>';
+            }
         }
 
         mysqli_close($dbc); // close the connection

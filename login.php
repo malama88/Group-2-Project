@@ -10,14 +10,23 @@ include('templates/header.html');
 // Check if the form has been submitted:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-// Connect
-    $dbc = mysqli_connect('thewritedev.com', 'thewrjk1_group', 'web2310', 'thewrjk1_WEB2310');
-    $result = $mysqli->query("SELECT * FROM USERS WHERE email='$email'");
+
 
     // Handle the form:
     if ( (!empty($_POST['email'])) && (!empty($_POST['password'])) ) {
+        // Connect
+        $email = strtolower($_POST['email']);
+        $password = $_POST['password'];
+        $dbc = mysqli_connect('thewritedev.com', 'thewrjk1_group', 'web2310', 'thewrjk1_WEB2310');
+        $query = "SELECT * FROM USERS WHERE email='$email'";
+        $result = $result = mysqli_query($dbc,$query);
+        $rows = mysqli_num_rows($result);
+        $row = mysqli_fetch_array($result);
+        $dbPassword = $row['password'];
 
-        if ( (strtolower($_POST['email']) == 'me@example.com') && ($_POST['password'] == 'testpass') ) { // Correct!
+
+
+        if ( $dbPassword == $password ) { // Correct!
 
             // Do session stuff:
             session_start();
@@ -32,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else { // Incorrect!
 
             print '<p class="text--error">The submitted email address and password do not match those on file!<br>Go back and try again.</p>';
+
 
         }
 
