@@ -33,6 +33,7 @@ body {
   border-bottom: 1px solid #eee;
 
 }
+/*
 .nav {
     text-align: right;
 
@@ -55,6 +56,14 @@ body {
 
   margin-left: 0;
 
+}
+*/
+
+hr {
+  background:url(divider.png) no-repeat bottom center;
+	height:42px;
+	border:none !important;
+  
 }
 .siteContent {
 

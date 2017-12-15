@@ -4,8 +4,8 @@ define('TITLE', 'Login');
 include('templates/header.html');
 
 	// Print some introductory text:
-    print '<h2></h2>
-	<p> </p>';
+    print '<h2>Thank you for joining us!</h2>
+	<p> Please log in to continue.</p>';
 
 // Check if the form has been submitted:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 } else { // Display the form.
 
-    print '<form id="form" action="login.php" method="post" class="form--inline">
+    print '<form id="form" action="welcome.php" method="post" class="form--inline">
 	<p><input placeholder="Email Address" type="email" name="email" size="20"></p>
 	<p><input placeholder="Password" type="password" name="password" size="20"></p>
 	<p><input type="submit" name="submit" value="Log In!" class="button--pill"></p>
