@@ -1,5 +1,7 @@
 <?php
 
+// login.php - created by Nichole Rich
+
 define('TITLE', 'Login');
 include('templates/header.html');
 
