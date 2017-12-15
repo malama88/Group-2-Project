@@ -1,4 +1,8 @@
 <?php
+ob_start();
+session_start();
+
+// login.php - created by Nichole Rich
 
 define('TITLE', 'Login');
 include('templates/header.html');
@@ -26,12 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($rows == 1 ) { // Correct!
 
             // Do session stuff:
-            session_start();
+
+
             $_SESSION['email'] = $_POST['email'];
             $_SESSION['loggedin'] = time();
 
             // Redirect the user to the welcome page!
-            ob_end_clean(); // Destroy the buffer!
+            //ob_end_clean(); // Destroy the buffer!
             header ('Location: welcome.php');
             exit();
 

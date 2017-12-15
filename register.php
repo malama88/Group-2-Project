@@ -1,5 +1,7 @@
 ﻿<?php
 
+// register.php - created by Nichole Rich
+
 define('TITLE', 'Registration Form');
 include('templates/header.html');
 
