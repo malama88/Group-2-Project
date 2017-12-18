@@ -11,7 +11,7 @@ $dbc = mysqli_connect('thewritedev.com', 'thewrjk1_group', 'web2310', 'thewrjk1_
 if (isset($_GET['id']) && is_numeric($_GET['id'])) { //display the entry in a form
 	
 	//Define the query:
- $query="SELECT title, entry FROM entries WHERE id = {$_GET['id']}";
+ $query="SELECT title, entry FROM ENTRIES WHERE id = {$_GET['id']}";
  if($r=mysqli_query($dbc, $query)) { //Retrieve the information.
 		
 		// Make the form:
@@ -32,7 +32,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) { //display the entry in a fo
 } elseif (isset($_POST['id']) && is_numeric($_POST['id'])) { // Handle the form.
 	
 	// Define the query:
-	$query = "DELETE FROM entries WHERE id={$_POST['id']} LIMIT 1";
+	$query = "DELETE FROM ENTRIES WHERE id={$_POST['id']} LIMIT 1";
 	$r = mysqli_query($dbc, $query); // Execute the query.
 	
 	// Report on the result:

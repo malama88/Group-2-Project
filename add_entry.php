@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 		// Connect and select:
 		$dbc = mysqli_connect('thewritedev.com', 'thewrjk1_group', 'web2310', 'thewrjk1_WEB2310');
 		// Define the query:
-		$query = "INSERT INTO entries (id, title, entry, date_entered) VALUES (0, '$title', '$entry', NOW())";
+		$query = "INSERT INTO ENTRIES (id, title, entry, date_entered) VALUES (0, '$title', '$entry', NOW())";
 		// Execute the query:
 		if (@mysqli_query($dbc, $query)) {
 			print '<p>Your journal entry has been added!</p>';

@@ -11,7 +11,7 @@ print'<h1>My Journal</h1>
 $dbc=mysqli_connect('thewritedev.com', 'thewrjk1_group', 'web2310', 'thewrjk1_WEB2310');
 	
 	// Define the query:
-	$query = 'SELECT * FROM entries ORDER BY date_entered DESC';
+	$query = 'SELECT * FROM ENTRIES ORDER BY date_entered DESC';
 if($r = mysqli_query($dbc, $query)) { // Run the query.
 	
 	//Retrieve and print every record:
